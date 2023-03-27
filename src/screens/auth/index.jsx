@@ -2,17 +2,25 @@ import { useState } from "react";
 import { View, TextInput, Button, Text, TouchableOpacity } from "react-native";
 import { Card } from "../../components";
 import { THEMES } from "../../constants";
-
+import { useDispatch } from "react-redux";
 import { styles } from "./styles";
+import { signIn, signUp} from "../../store/slices/auth.slice";
 
 const Auth = ({ navigation }) => {
+  const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const title = isLogin ? "Login" : "Register";
   const message = isLogin
     ? "don't have an account?"
     : "Already have an account";
   const messageButton = isLogin ? "Login" : "Register";
+
+  const onHandlerSubmit = () => {
+    dispatch(isLogin ? signIn(email, password) : signUp(email, password));
+  };
 
   return (
     <View style={styles.container}>
@@ -25,7 +33,8 @@ const Auth = ({ navigation }) => {
           placeholderTextColor={THEMES.white}
           autoCapitalize="none"
           autoCorrect={false}
-          onChangeText={() => {}}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
         />
         <Text style={styles.label}>Password</Text>
         <TextInput
@@ -35,12 +44,13 @@ const Auth = ({ navigation }) => {
           placeholderTextColor={THEMES.white}
           autoCapitalize="none"
           autoCorrect={false}
-          onChangeText={() => {}}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
         />
         <Button
           title={messageButton}
           color={THEMES.background}
-          onPress={() => {}}
+          onPress={onHandlerSubmit}
         />
         <View style={styles.prompt}>
           <TouchableOpacity
