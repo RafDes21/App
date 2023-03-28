@@ -2,12 +2,14 @@ import { useState } from "react";
 import { View, TextInput, Button, Text, TouchableOpacity } from "react-native";
 import { Card } from "../../components";
 import { THEMES } from "../../constants";
-import { useDispatch } from "react-redux";
 import { styles } from "./styles";
-import { signIn, signUp} from "../../store/slices/auth.slice";
+import { signIn, signUp } from "../../store/slices/api-firebase";
+
+import { useDispatch } from "react-redux";
 
 const Auth = ({ navigation }) => {
   const dispatch = useDispatch();
+
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -1,1 +1,5 @@
 export { default as Auth} from "./auth"
+export { default as Add} from "./add"
+export {default as Favorites} from "./favorites"
+export {default as UserList} from "./user-list"
+export {default as UserDetail} from "./users-detail"
