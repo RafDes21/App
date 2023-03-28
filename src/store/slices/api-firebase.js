@@ -19,16 +19,15 @@ export const signUp = (email, password) => {
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
-      console.log("response" + response);
-      const data = await response.json();
-      console.log("data" + data);
 
-      // dispatch(
-      //   updateState({
-      //     token: data.idToken,
-      //     userId: data.localId,
-      //   })
-      // );
+      const data = await response.json();
+
+      dispatch(
+        updateState({
+          token: data.idToken,
+          userId: data.localId,
+        })
+      );
     } catch (error) {
       throw error;
     }

@@ -5,7 +5,7 @@ import AuthNavigator from "./auth";
 import TabsNavigator from "./tabs";
 
 const AppNavigator = () => {
-  const token = useSelector((state) => state.auth.userId);
+  const token = useSelector((state) => state.auth.token);
 
   return (
     <NavigationContainer>
