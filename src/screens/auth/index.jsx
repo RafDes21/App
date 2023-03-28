@@ -22,6 +22,7 @@ const Auth = ({ navigation }) => {
 
   const onHandlerSubmit = () => {
     dispatch(isLogin ? signIn(email, password) : signUp(email, password));
+    
   };
 
   return (

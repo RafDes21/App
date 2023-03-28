@@ -50,7 +50,7 @@ export const signIn = (email, password) => {
       });
 
       const data = await response.json();
-      console.log(data);
+
       dispatch(
         updateState({
           token: data.idToken,

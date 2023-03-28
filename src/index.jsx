@@ -1,12 +1,21 @@
 import { ActivityIndicator, View } from "react-native";
 import { useFonts } from "expo-font";
-
+import { init } from "./db";
 import { styles } from "./styles";
 import AppNavigator from "./navigation";
 
 //redux
 import { store } from "./store";
 import { Provider } from "react-redux";
+
+init()
+  .then(() => {
+    console.log("Initialized database");
+  })
+  .catch((err) => {
+    console.log("Initialized db failed");
+    console.log(err);
+  });
 
 const App = () => {
   const [loaded] = useFonts({
