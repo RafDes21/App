@@ -21,6 +21,7 @@ const TabsNavigator = () => {
         component={DiaryNavigator}
         options={{
           title: "Diary",
+          headerTitleAlign: "center",
           tabBarIcon: ({ focused }) => (
             <Ionicons name={focused ? "book" : "book-outline"} size={22} />
           ),
@@ -30,16 +31,17 @@ const TabsNavigator = () => {
         name="AddTab"
         component={AddNavigator}
         options={{
-          title: "Add",
+          title: "Register",
+          headerTitleAlign:"center",
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "add-circle" : "add-circle-outline"}
-              size={22}
+              size={28}
             />
           ),
         }}
       />
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="FavoritesTab"
         component={FavoritesNavigator}
         options={{
@@ -48,7 +50,7 @@ const TabsNavigator = () => {
             <Ionicons name={focused ? "heart" : "heart-outline"} size={22} />
           ),
         }}
-      />
+      /> */}
     </BottomTab.Navigator>
   );
 };

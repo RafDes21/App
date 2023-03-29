@@ -3,7 +3,7 @@ import { View, TextInput, Button, Text, TouchableOpacity } from "react-native";
 import { Card } from "../../components";
 import { THEMES } from "../../constants";
 import { styles } from "./styles";
-import { signIn, signUp } from "../../store/slices/api-firebase";
+import { signIn, signUp } from "../../store/slices/auth-firebase";
 
 import { useDispatch } from "react-redux";
 
@@ -22,7 +22,6 @@ const Auth = ({ navigation }) => {
 
   const onHandlerSubmit = () => {
     dispatch(isLogin ? signIn(email, password) : signUp(email, password));
-    
   };
 
   return (
